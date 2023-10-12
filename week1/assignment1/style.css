@@ -1,7 +1,15 @@
 @import "reset.css";
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
 }
 
 body {
@@ -10,20 +18,20 @@ body {
 }
 
 header {
-  width: 100%;
+  width: 100vw;
   height: 55px;
-  padding: 20px 0 10px 20px;
-  background-color: midnightblue;
+  padding: 20px 0 10px 50px;
+  background-color: steelblue;
   color: white;
   font-weight: 600;
-  font-size: 21px;
+  font-size: 22px;
 }
 
 #preview {
   display: flex;
   width: 100%;
   height: 350px;
-  padding: 20px 25px;
+  padding: 20px 50px;
   gap: 10px;
   overflow: auto;
   background-color: whitesmoke;
@@ -57,4 +65,125 @@ nav a:hover {
   color: orangered;
   text-decoration: underline;
   text-decoration-thickness: 1px;
+}
+
+.index {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 55px;
+  padding: 20px 0 0 50px;
+  background-color: steelblue;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#fu_img_section {
+  display: flex;
+  width: 100vw;
+  padding: 30px 120px;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#fu_img_section img {
+  width: 300px;
+  height: 300px;
+  flex-grow: 1;
+}
+
+/* Bangkok Flex section */
+#bk_img_section {
+  display: flex;
+  width: 100vw;
+  padding: 30px 120px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#bk_left img {
+  width: 650px;
+  height: 650px;
+}
+
+#bk_right {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  gap: 10px;
+}
+
+#bk_right img {
+  width: 320px;
+  height: 320px;
+  flex-grow: 1;
+}
+
+/* 방콕 섹션 반응형 필요 */
+
+/* Busan grid section */
+.bs_grid_section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 100%;
+  height: 700px;
+  padding: 30px 120px;
+  gap: 10px;
+}
+
+.bs_grid_section img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.bs_grid_section img:nth-child(1) {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.bs_grid_section img:nth-child(2) {
+  grid-column: 3/5;
+  grid-row: 1/3;
+}
+
+.bs_grid_section img:nth-child(3) {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+
+.bs_grid_section img:nth-child(4) {
+  grid-column: 1/4;
+  grid-row: 3/5;
+}
+
+.bs_grid_section img:nth-child(5) {
+  grid-column: 4/5;
+  grid-row: 3/5;
+}
+
+/* footer */
+footer {
+  width: 100vw;
+  height: 90px;
+  padding: 10px 0 10px 50px;
+  background-color: steelblue;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 150%;
+}
+
+#fukuoka img:hover,
+#bangkok img:hover,
+#busan img:hover {
+  transform: translateY(-5px);
+  transition-duration: 1s;
 }
