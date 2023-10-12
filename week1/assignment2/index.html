@@ -5,5 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>💸도리의 가계부💸</title>
   </head>
-  <body></body>
+  <body>
+    <!-- 제목 -->
+    <header>도리의 가계부</header>
+    <!-- 나의 자산 부분 -->
+    <section id="total_budget">
+      <div>나의 자산</div>
+      <div>4,475,040</div>
+      <div id="todays_income"></div>
+      <div id="todays_income">
+        <span>+</span>
+        <span>1,557,270</span>
+      </div>
+      <div id="todays_expense">
+        <span>-</span>
+        <span>210,000</span>
+      </div>
+    </section>
+    <!-- 날짜, 수입/지출 버튼 -->
+    <section id="list_option">
+      <div id="date">
+        <img src="./img/chevron-left-solid.svg" alt="" />
+        <span>7월 10일</span>
+        <img src="./img/chevron-right-solid.svg" alt="" />
+      </div>
+      <span>내역 리스트</span>
+      <div id="btns">
+        <input type="checkbox" checked="checked" />수입
+        <input type="checkbox" checked="checked" />지출
+      </div>
+    </section>
+    <!-- 수입/지출 내역 -->
+    <section id="budget_list">
+      <ul>
+        <li>
+          <span class="categorize">디저트</span>
+          <span class="space">공차 건대로데오점</span>
+          <span class="amount">-5,900</span>
+        </li>
+        <li>
+          <span class="categorize">생활</span>
+          <span class="space">CJ 올리브영</span>
+          <span class="amount">-37,000</span>
+        </li>
+        <li>
+          <span class="categorize">월급</span>
+          <span class="space">(주)에스케이씨컴퍼니</span>
+          <span class="amount">+1,554,470</span>
+        </li>
+        <li>
+          <span class="categorize">문화</span>
+          <span class="space">인터파크티켓</span>
+          <span class="amount">-95,200</span>
+        </li>
+        <li>
+          <span class="categorize">배달</span>
+          <span class="space">(주)우아한형제들</span>
+          <span class="amount">-71,900</span>
+        </li>
+        <li>
+          <span class="categorize">기타</span>
+          <span class="space">카카오뱅크 캐시백지급</span>
+          <span class="amount">+2,800</span>
+        </li>
+      </ul>
+    </section>
+    <!-- 리스트 추가 버튼 -->
+    <section id="list_add">
+      <button id="addBtn">+</button>
+    </section>
+  </body>
 </html>
