@@ -96,11 +96,11 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   padding-top: 1rem;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 #date {
@@ -119,7 +119,7 @@ header {
 #option_bottom_wrapper {
   display: flex;
   width: 100%;
-  padding: 0 1rem 0.5rem 1rem;
+  padding: 0 2rem 1rem 2rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -132,16 +132,35 @@ header {
 #btns {
   display: flex;
   align-items: center;
+  gap: 0.2rem;
 }
 
-#btns input {
-  margin-left: 0.5rem;
+#btns input[type="checkbox"] {
+  display: none;
+}
+
+#btns label {
+  padding: 0.3rem 1.4rem;
+  color: tomato;
+  border-radius: 0.8rem;
+  border: solid 0.1rem tomato;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#btns input[type="checkbox"]:checked + label {
+  padding: 0.3rem 1.4rem;
+  background-color: tomato;
+  color: peachpuff;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* 수입 & 지출 내역 */
 #budget_list {
   width: 100%;
-  height: 20rem;
+  height: calc(100vh - 22rem);
   padding: 1rem 1rem 4rem 1rem;
   overflow: auto;
 }
@@ -163,6 +182,7 @@ header {
 }
 
 .categorize {
+  white-space: nowrap;
   margin-right: 1.2rem;
 }
 
