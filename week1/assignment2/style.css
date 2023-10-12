@@ -13,6 +13,7 @@ body {
   height: 100vh;
 }
 
+/* 제목 */
 header {
   width: 100%;
   height: 3rem;
@@ -20,10 +21,11 @@ header {
   text-align: center;
   background-color: lightsalmon;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 600;
 }
 
+/* 나의 자산 총 정리 부분 */
 #total_budget_section {
   width: 100%;
   height: 14rem;
@@ -43,7 +45,7 @@ header {
   gap: 0.5rem;
   background-color: peachpuff;
   border-radius: 1rem;
-  border: solid 0.15rem black;
+  border: solid 0.15rem rgb(173, 173, 173);
 }
 
 #total_budget_title {
@@ -85,10 +87,12 @@ header {
   font-size: 1.3rem;
 }
 
+/* 날짜, 지출/수입 버튼 */
 #list_option {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 5rem;
   padding-top: 1rem;
   justify-content: center;
   align-items: center;
@@ -111,7 +115,7 @@ header {
 #option_bottom_wrapper {
   display: flex;
   width: 100%;
-  padding: 0 0.7rem 0.5rem 0.7rem;
+  padding: 0 1rem 0.5rem 1rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -128,4 +132,56 @@ header {
 
 #btns input {
   margin-left: 0.5rem;
+}
+
+/* 수입 & 지출 내역 */
+#budget_list {
+  width: 100%;
+  height: 17rem;
+  padding: 1rem;
+  overflow: auto;
+}
+
+#budget_list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+#budget_list li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  background-color: peachpuff;
+  border-radius: 1rem;
+}
+
+.categorize {
+  margin-right: 1.2rem;
+}
+
+.space {
+  width: 8rem;
+  margin-right: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.delete_btn {
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add {
+  color: blue;
+}
+
+.sub {
+  color: red;
 }
