@@ -3,23 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>💸도리의 가계부💸</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>💸용감자의 가계부💸</title>
   </head>
   <body>
     <!-- 제목 -->
-    <header>도리의 가계부</header>
+    <header>용감자의 가계부</header>
     <!-- 나의 자산 부분 -->
-    <section id="total_budget">
-      <div>나의 자산</div>
-      <div>4,475,040</div>
-      <div id="todays_income"></div>
-      <div id="todays_income">
-        <span>+</span>
-        <span>1,557,270</span>
-      </div>
-      <div id="todays_expense">
-        <span>-</span>
-        <span>210,000</span>
+    <section id="total_budget_section">
+      <div id="total_budget_wrapper">
+        <div id="total_budget_title">나의 자산</div>
+        <div id="total_amount">4,475,040</div>
+        <div id="todays_history">
+          <div id="income">
+            <span class="icon">+</span>
+            <span>1,557,270</span>
+          </div>
+          <div id="expense">
+            <span class="icon">-</span>
+            <span>210,000</span>
+          </div>
+        </div>
       </div>
     </section>
     <!-- 날짜, 수입/지출 버튼 -->
@@ -35,6 +39,7 @@
         <input type="checkbox" checked="checked" />지출
       </div>
     </section>
+    <hr />
     <!-- 수입/지출 내역 -->
     <section id="budget_list">
       <ul>
