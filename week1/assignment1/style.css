@@ -188,8 +188,19 @@ footer {
   transition-duration: 1s;
 }
 
+#top_btn {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  bottom: 30px;
+  right: 40px;
+  z-index: 999;
+  background-color: papayawhip;
+  border-radius: 50%;
+}
+
 /* 수정할 것 
-1. hover시에 사진이 index를 넘어오는 현상
-2. bangkok 반응형
-3. 가로 스크롤 생기는 원인 찾기
+1. bangkok 반응형
+2. 가로 스크롤 생기는 원인 찾기
  */
