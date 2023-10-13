@@ -276,11 +276,16 @@ footer {
   line-height: 150%;
 }
 
+#fukuoka img,
+#bangkok img,
+#busan img {
+  transition: 1s ease;
+}
+
 #fukuoka img:hover,
 #bangkok img:hover,
 #busan img:hover {
   transform: translateY(-5px);
-  transition-duration: 1s;
 }
 
 #top_btn {
