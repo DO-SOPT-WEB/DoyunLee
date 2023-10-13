@@ -17,6 +17,7 @@ body {
   height: 100vh;
 }
 
+/* 제목(header) */
 header {
   width: 100vw;
   height: 55px;
@@ -27,6 +28,7 @@ header {
   font-size: 22px;
 }
 
+/* preview section */
 #preview {
   display: flex;
   width: 100%;
@@ -52,6 +54,7 @@ header {
   border-radius: 5px;
 }
 
+/* nav bar secton */
 nav {
   width: 100%;
   height: 110px;
@@ -82,6 +85,7 @@ nav a:hover {
   text-decoration-thickness: 1px;
 }
 
+/* 이미지 section */
 .index {
   position: sticky;
   top: 0;
@@ -95,6 +99,7 @@ nav a:hover {
   z-index: 800;
 }
 
+/* 후쿠오카 (flex)*/
 #fu_img_section {
   display: flex;
   width: 100vw;
@@ -111,38 +116,112 @@ nav a:hover {
   flex-grow: 1;
 }
 
-/* Bangkok Flex section */
+/* 방콕 (flex)*/
+
+#bangkok {
+  width: 100vw;
+}
+
 #bk_img_section {
   display: flex;
+  justify-content: center;
   width: 100vw;
   padding: 30px 120px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
 }
 
-#bk_left img {
-  width: 650px;
-  height: 650px;
+#bk_left {
+  display: flex;
+  justify-content: end;
+  width: 50%;
 }
 
 #bk_right {
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
   gap: 10px;
 }
 
-#bk_right img {
-  width: 320px;
-  height: 320px;
-  flex-grow: 1;
+@media all and (min-width: 1490px) {
+  #bk_img_section {
+    gap: 10px;
+  }
+
+  #bk_right {
+    width: 50%;
+    flex-basis: 50%;
+  }
+
+  #bk_left {
+    width: 50%;
+  }
+
+  #bk_left img {
+    width: 620px;
+    height: 620px;
+  }
+
+  #bk_right img {
+    width: 305px;
+    height: 305px;
+  }
 }
 
-/* 방콕 섹션 반응형 필요 */
+@media all and (min-width: 1024px) and (max-width: 1489px) {
+  #bk_img_section {
+    flex-wrap: wrap;
+  }
 
-/* Busan grid section */
+  #bk_left,
+  #bk_right {
+    width: 100%;
+  }
+
+  #bk_left img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  #bk_right img {
+    width: 30%;
+    height: 300px;
+    object-fit: cover;
+    flex-grow: 1;
+  }
+
+  #bk_right img:last-child {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+@media all and (max-width: 1023px) {
+  #bk_img_section {
+    flex-wrap: wrap;
+  }
+
+  #bk_left,
+  #bk_right {
+    width: 100%;
+  }
+
+  #bk_left img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  #bk_right img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    flex-grow: 1;
+  }
+}
+
+/* 부산(grid) */
 .bs_grid_section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
