@@ -117,7 +117,6 @@ nav a:hover {
 }
 
 /* 방콕 (flex)*/
-
 #bangkok {
   width: 100vw;
 }
@@ -299,8 +298,3 @@ footer {
   background-color: papayawhip;
   border-radius: 50%;
 }
-
-/* 수정할 것 
-1. bangkok 반응형
-2. 가로 스크롤 생기는 원인 찾기
- */

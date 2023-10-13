@@ -195,11 +195,19 @@ header {
 }
 
 .space {
+  width: 40%;
   margin-right: 1.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: 600;
+}
+
+.amount {
+  width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .delete_btn {
