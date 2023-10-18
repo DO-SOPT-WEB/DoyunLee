@@ -96,7 +96,7 @@ nav a:hover {
   color: white;
   font-size: 20px;
   font-weight: 500;
-  z-index: 800;
+  z-index: 1;
 }
 
 /* 후쿠오카 (flex)*/
@@ -294,7 +294,7 @@ footer {
   padding: 10px;
   bottom: 30px;
   right: 40px;
-  z-index: 999;
+  z-index: 2;
   background-color: papayawhip;
   border-radius: 50%;
 }
