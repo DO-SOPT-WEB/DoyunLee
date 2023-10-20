@@ -275,11 +275,11 @@ footer {
   line-height: 150%;
 }
 
-.img_animation {
+.img_content {
   transition: 1s ease;
 }
 
-.img_animation:hover {
+.img_content:hover {
   transform: translateY(-5px);
 }
 
