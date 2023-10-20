@@ -21,7 +21,7 @@ body {
 header {
   width: 100vw;
   height: 55px;
-  padding: 20px 0 10px 50px;
+  padding: 20px 0 10px 100px;
   background-color: steelblue;
   color: white;
   font-weight: 600;
@@ -33,7 +33,7 @@ header {
   display: flex;
   width: 100%;
   height: 350px;
-  padding: 20px 50px;
+  padding: 20px 100px;
   gap: 10px;
   overflow: auto;
   background-color: whitesmoke;
@@ -91,7 +91,7 @@ nav a:hover {
   top: 0;
   width: 100%;
   height: 55px;
-  padding: 20px 0 0 50px;
+  padding: 20px 0 0 100px;
   background-color: steelblue;
   color: white;
   font-size: 20px;
@@ -103,7 +103,7 @@ nav a:hover {
 #fu_img_section {
   display: flex;
   width: 100vw;
-  padding: 30px 120px;
+  padding: 30px 220px;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
@@ -111,8 +111,8 @@ nav a:hover {
 }
 
 #fu_img_section img {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   flex-grow: 1;
 }
 
@@ -125,7 +125,7 @@ nav a:hover {
   display: flex;
   justify-content: center;
   width: 100vw;
-  padding: 30px 120px;
+  padding: 30px 220px;
   gap: 10px;
 }
 
@@ -227,7 +227,7 @@ nav a:hover {
   grid-template-rows: repeat(4, 1fr);
   width: 100%;
   height: 700px;
-  padding: 30px 120px;
+  padding: 30px 220px;
   gap: 10px;
 }
 
@@ -275,15 +275,11 @@ footer {
   line-height: 150%;
 }
 
-#fukuoka img,
-#bangkok img,
-#busan img {
+.img_animation {
   transition: 1s ease;
 }
 
-#fukuoka img:hover,
-#bangkok img:hover,
-#busan img:hover {
+.img_animation:hover {
   transform: translateY(-5px);
 }
 
