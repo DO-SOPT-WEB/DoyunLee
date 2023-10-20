@@ -99,8 +99,8 @@ nav a:hover {
   z-index: 1;
 }
 
-/* 후쿠오카 (flex)*/
-#fu_img_section {
+/* main content */
+.img_flex_section {
   display: flex;
   width: 100vw;
   padding: 30px 220px;
@@ -109,43 +109,34 @@ nav a:hover {
   justify-content: center;
   align-items: center;
 }
-
-#fu_img_section img {
+/* 후쿠오카 (flex)*/
+#fukuoka img {
   width: 250px;
   height: 250px;
   flex-grow: 1;
 }
 
 /* 방콕 (flex)*/
-#bangkok {
-  width: 100vw;
+#bk_img_section {
+  flex-wrap: nowrap;
+  padding: 30px 150px;
 }
 
-#bk_img_section {
+#bk_img_section div {
   display: flex;
-  justify-content: center;
-  width: 100vw;
-  padding: 30px 220px;
-  gap: 10px;
 }
 
 #bk_left {
-  display: flex;
   justify-content: end;
   width: 50%;
 }
 
 #bk_right {
-  display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 @media all and (min-width: 1490px) {
-  #bk_img_section {
-    gap: 10px;
-  }
-
   #bk_right {
     width: 50%;
     flex-basis: 50%;
@@ -156,13 +147,13 @@ nav a:hover {
   }
 
   #bk_left img {
-    width: 620px;
-    height: 620px;
+    width: 590px;
+    height: 590px;
   }
 
   #bk_right img {
-    width: 305px;
-    height: 305px;
+    width: 285px;
+    height: 285px;
   }
 }
 
@@ -178,7 +169,7 @@ nav a:hover {
 
   #bk_left img {
     width: 100%;
-    height: 400px;
+    height: 300px;
     object-fit: cover;
   }
 
@@ -208,13 +199,13 @@ nav a:hover {
 
   #bk_left img {
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
   }
 
   #bk_right img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     flex-grow: 1;
   }
