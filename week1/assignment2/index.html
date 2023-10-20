@@ -7,99 +7,97 @@
     <title>💸용감자의 가계부💸</title>
   </head>
   <body>
-    <div id="wrap">
-      <!-- 제목 -->
-      <header>💸 용감자의 가계부 💸</header>
-      <hr />
-      <!-- 나의 자산 부분 -->
-      <section id="total_budget_section">
-        <div id="total_budget_wrapper">
-          <h1 id="total_budget_title">나의 자산</h1>
-          <h2 id="total_amount">4,475,040</h2>
-          <div id="todays_history">
-            <div id="income">
-              <span class="icon">+</span>
-              <span>1,557,270</span>
-            </div>
-            <div id="expense">
-              <span class="icon">-</span>
-              <span>210,000</span>
-            </div>
+    <!-- 제목 -->
+    <header><h1>💸 용감자의 가계부 💸</h1></header>
+    <hr />
+    <!-- 나의 자산 부분 -->
+    <section class="total_budget_section">
+      <div class="total_budget_wrapper">
+        <h1>나의 자산</h1>
+        <h2>4,475,040</h2>
+        <div class="todays_history">
+          <div id="income">
+            <span class="icon">+</span>
+            <span>1,557,270</span>
+          </div>
+          <div id="expense">
+            <span class="icon">-</span>
+            <span>210,000</span>
           </div>
         </div>
-      </section>
-      <hr />
-      <!-- 날짜, 수입/지출 버튼 -->
-      <section id="list_option">
-        <div id="date">
-          <button>
-            <img src="./img/chevron-left-solid.svg" alt="왼쪽 화살표" />
-          </button>
-          <span>7월 10일</span>
-          <button>
-            <img src="./img/chevron-right-solid.svg" alt="오른쪽 화살표" />
-          </button>
+      </div>
+    </section>
+    <hr />
+    <!-- 날짜, 수입/지출 버튼 -->
+    <section class="list_option_section">
+      <div class="date_section">
+        <button type="button">
+          <img src="./img/chevron-left-solid.svg" alt="왼쪽 화살표" />
+        </button>
+        <span>7월 10일</span>
+        <button type="button">
+          <img src="./img/chevron-right-solid.svg" alt="오른쪽 화살표" />
+        </button>
+      </div>
+      <div class="option_bottom_wrapper">
+        <span>내역 리스트</span>
+        <div class="filtering_btns">
+          <input type="checkbox" id="income_check" checked /><label
+            for="income_check"
+            >수입</label
+          >
+          <input type="checkbox" id="expense_check" checked /><label
+            for="expense_check"
+            >지출</label
+          >
         </div>
-        <div id="option_bottom_wrapper">
-          <span>내역 리스트</span>
-          <div id="btns">
-            <input type="checkbox" id="income_check" checked="checked" /><label
-              for="income_check"
-              >수입</label
-            >
-            <input type="checkbox" id="expense_check" checked="checked" /><label
-              for="expense_check"
-              >지출</label
-            >
-          </div>
-        </div>
-      </section>
-      <hr />
-      <!-- 수입/지출 내역 -->
-      <section id="budget_list">
-        <ul>
-          <li>
-            <span class="categorize">식비</span>
-            <span class="space">공차 건대로데오점</span>
-            <span class="amount sub">-5,900</span>
-            <button class="delete_btn">X</button>
-          </li>
-          <li>
-            <span class="categorize">생활</span>
-            <span class="space">CJ 올리브영</span>
-            <span class="amount sub">-37,000</span>
-            <button class="delete_btn">X</button>
-          </li>
-          <li>
-            <span class="categorize">월급</span>
-            <span class="space">(주)에스케이씨컴퍼니</span>
-            <span class="amount add">+1,554,470</span>
-            <button class="delete_btn">X</button>
-          </li>
-          <li>
-            <span class="categorize">문화</span>
-            <span class="space">인터파크티켓</span>
-            <span class="amount sub">-95,200</span>
-            <button class="delete_btn">X</button>
-          </li>
-          <li>
-            <span class="categorize">배달</span>
-            <span class="space">(주)우아한형제들</span>
-            <span class="amount sub">-71,900</span>
-            <button class="delete_btn">X</button>
-          </li>
-          <li>
-            <span class="categorize">기타</span>
-            <span class="space">카카오뱅크 캐시백지급</span>
-            <span class="amount add">+2,800</span>
-            <button class="delete_btn">X</button>
-          </li>
-        </ul>
-      </section>
-      <!-- 리스트 추가 버튼 -->
-      <footer>
-        <button id="addBtn">+</button>
-      </footer>
-    </div>
+      </div>
+    </section>
+    <hr />
+    <!-- 수입/지출 내역 -->
+    <section class="budget_list">
+      <ul>
+        <li>
+          <span class="categorize">식비</span>
+          <span class="space">공차 건대로데오점</span>
+          <span class="amount sub">-5,900</span>
+          <button class="delete_btn">X</button>
+        </li>
+        <li>
+          <span class="categorize">생활</span>
+          <span class="space">CJ 올리브영</span>
+          <span class="amount sub">-37,000</span>
+          <button class="delete_btn">X</button>
+        </li>
+        <li>
+          <span class="categorize">월급</span>
+          <span class="space">(주)에스케이씨컴퍼니</span>
+          <span class="amount add">+1,554,470</span>
+          <button class="delete_btn">X</button>
+        </li>
+        <li>
+          <span class="categorize">문화</span>
+          <span class="space">인터파크티켓</span>
+          <span class="amount sub">-95,200</span>
+          <button class="delete_btn">X</button>
+        </li>
+        <li>
+          <span class="categorize">배달</span>
+          <span class="space">(주)우아한형제들</span>
+          <span class="amount sub">-71,900</span>
+          <button class="delete_btn">X</button>
+        </li>
+        <li>
+          <span class="categorize">기타</span>
+          <span class="space">카카오뱅크 캐시백지급</span>
+          <span class="amount add">+2,800</span>
+          <button class="delete_btn">X</button>
+        </li>
+      </ul>
+    </section>
+    <!-- 리스트 추가 버튼 -->
+    <footer>
+      <button id="add_btn">+</button>
+    </footer>
   </body>
 </html>

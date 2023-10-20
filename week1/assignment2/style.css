@@ -10,7 +10,7 @@ hr {
 
 body {
   width: 100vw;
-  height: 100vh;
+  min-height: calc(100% - 3rem);
 }
 
 /* 제목 */
@@ -22,24 +22,23 @@ header {
   height: 2.9rem;
   text-align: center;
   background-color: lightsalmon;
+}
+
+header h1 {
   color: white;
   font-size: 1.6rem;
   font-weight: 600;
 }
 
-#wrap {
-  min-height: calc(100% - 3rem);
-}
-
 /* 나의 자산 총 정리 부분 */
-#total_budget_section {
+.total_budget_section {
   width: 100%;
   height: 14rem;
   padding: 2rem;
   border-width: 0.1rem 0;
 }
 
-#total_budget_wrapper {
+.total_budget_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,47 +52,45 @@ header {
   border: solid 0.15rem gray;
 }
 
-#total_budget_title {
+.total_budget_wrapper h1 {
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-#total_amount {
+.total_budget_wrapper h2 {
   font-size: 2rem;
   font-weight: 700;
 }
 
-#todays_history {
+.todays_history {
   display: flex;
   margin-top: 0.2rem;
   font-size: 1.4rem;
   gap: 1.2rem;
 }
 
-/* icon 디자인 생각해보기 */
 .icon {
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-#income {
+.todays_history > div {
   display: flex;
   align-items: center;
   gap: 0.1rem;
-  color: blue;
   font-size: 1.3rem;
+}
+
+#income {
+  color: blue;
 }
 
 #expense {
-  display: flex;
-  align-items: center;
-  gap: 0.1rem;
   color: red;
-  font-size: 1.3rem;
 }
 
 /* 날짜, 지출/수입 버튼 */
-#list_option {
+.list_option_section {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -104,7 +101,7 @@ header {
   gap: 1rem;
 }
 
-#date {
+.date_section {
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -112,18 +109,18 @@ header {
   font-weight: 600;
 }
 
-#date button {
+.date_section button {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
-#date img {
+.date_section img {
   width: 1rem;
   height: 1rem;
 }
 
-#option_bottom_wrapper {
+.option_bottom_wrapper {
   display: flex;
   width: 100%;
   padding: 0 1.5rem 1rem 1.5rem;
@@ -131,22 +128,22 @@ header {
   align-items: center;
 }
 
-#option_bottom_wrapper span {
+.option_bottom_wrapper span {
   font-size: 1rem;
   font-weight: 600;
 }
 
-#btns {
+.filtering_btns {
   display: flex;
   align-items: center;
   gap: 0.2rem;
 }
 
-#btns input[type="checkbox"] {
+.filtering_btns input[type="checkbox"] {
   display: none;
 }
 
-#btns label {
+.filtering_btns label {
   padding: 0.3rem 1.4rem;
   color: tomato;
   border-radius: 0.8rem;
@@ -155,7 +152,7 @@ header {
   cursor: pointer;
 }
 
-#btns input[type="checkbox"]:checked + label {
+.filtering_btns input[type="checkbox"]:checked + label {
   padding: 0.3rem 1.4rem;
   background-color: tomato;
   color: peachpuff;
@@ -165,20 +162,20 @@ header {
 }
 
 /* 수입 & 지출 내역 */
-#budget_list {
+.budget_list {
   width: 100%;
   height: calc(100vh - 23rem);
   padding: 1rem 1rem 4rem 1rem;
   overflow: auto;
 }
 
-#budget_list ul {
+.budget_list ul {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-#budget_list li {
+.budget_list li {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -235,7 +232,7 @@ footer {
   background-color: lightsalmon;
 }
 
-#addBtn {
+.add_btn {
   width: 3rem;
   height: 100%;
   background-color: tomato;
