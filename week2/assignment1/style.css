@@ -116,6 +116,49 @@ nav a:hover {
   flex-grow: 1;
 }
 
+.img_hover_wrapper {
+  display: flex;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  flex-grow: 1;
+  transition: 0.7s ease;
+}
+
+.img_hover_wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.explanation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: auto;
+  color: white;
+  text-align: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.img_title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.img_exp {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 130%;
+}
+
+.bg_brightness {
+  filter: brightness(50%);
+}
+
 /* 방콕 (flex)*/
 #bk_img_section {
   flex-wrap: nowrap;
@@ -264,14 +307,6 @@ footer {
   font-size: 16px;
   text-align: center;
   line-height: 150%;
-}
-
-.img_content {
-  transition: 1s ease;
-}
-
-.img_content:hover {
-  transform: translateY(-5px);
 }
 
 #top_btn {
