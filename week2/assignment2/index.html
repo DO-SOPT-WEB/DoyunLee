@@ -14,15 +14,15 @@
     <section class="total_budget_section">
       <div class="total_budget_wrapper">
         <h1>나의 자산</h1>
-        <h2>4,475,040</h2>
+        <h2 class="init_balance"></h2>
         <div class="todays_history">
           <div id="income">
             <span class="icon">+</span>
-            <span>1,557,270</span>
+            <span class="income_amount">0</span>
           </div>
           <div id="expense">
             <span class="icon">-</span>
-            <span>210,000</span>
+            <span class="expense_amount">0</span>
           </div>
         </div>
       </div>
@@ -56,48 +56,12 @@
     <hr />
     <!-- 수입/지출 내역 -->
     <section class="budget_list">
-      <ul>
-        <li>
-          <span class="categorize">식비</span>
-          <span class="space">공차 건대로데오점</span>
-          <span class="amount sub">-5,900</span>
-          <button class="delete_btn">X</button>
-        </li>
-        <li>
-          <span class="categorize">생활</span>
-          <span class="space">CJ 올리브영</span>
-          <span class="amount sub">-37,000</span>
-          <button class="delete_btn">X</button>
-        </li>
-        <li>
-          <span class="categorize">월급</span>
-          <span class="space">(주)에스케이씨컴퍼니</span>
-          <span class="amount add">+1,554,470</span>
-          <button class="delete_btn">X</button>
-        </li>
-        <li>
-          <span class="categorize">문화</span>
-          <span class="space">인터파크티켓</span>
-          <span class="amount sub">-95,200</span>
-          <button class="delete_btn">X</button>
-        </li>
-        <li>
-          <span class="categorize">배달</span>
-          <span class="space">(주)우아한형제들</span>
-          <span class="amount sub">-71,900</span>
-          <button class="delete_btn">X</button>
-        </li>
-        <li>
-          <span class="categorize">기타</span>
-          <span class="space">카카오뱅크 캐시백지급</span>
-          <span class="amount add">+2,800</span>
-          <button class="delete_btn">X</button>
-        </li>
-      </ul>
+      <ul></ul>
     </section>
     <!-- 리스트 추가 버튼 -->
     <footer>
       <button id="add_btn">+</button>
     </footer>
+    <script src="index.js"></script>
   </body>
 </html>
