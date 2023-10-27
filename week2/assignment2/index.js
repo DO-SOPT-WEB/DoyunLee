@@ -16,7 +16,7 @@ let HISTORY_LIST = [
   },
   {
     id: 3,
-    category: "셍활",
+    category: "생활",
     space: "CJ 올리브영",
     amount: "37000",
     InOrExpense: "expense",
@@ -234,7 +234,7 @@ submitBtn.addEventListener("click", (e) => {
 const newForm = document.querySelector("form");
 function submitForm() {
   const newInExList = newForm.querySelectorAll(".in_ex_btns>input");
-  const newCategory = newForm.querySelector(".select_category>option");
+  const newCategory = newForm.querySelector(".select_category");
   const newAmount = newForm.querySelector(".amount_section>input");
   const newContent = newForm.querySelector(".content_section>input");
 
@@ -260,7 +260,7 @@ function submitForm() {
   const newListElm = [
     {
       id: HISTORY_LIST.length + 1,
-      category: newCategory.value,
+      category: newCategory.options[newCategory.selectedIndex].value,
       space: newContent.value,
       amount: newAmount.value,
       InOrExpense: inExState,
