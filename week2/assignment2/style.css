@@ -13,6 +13,10 @@ body {
   min-height: calc(100% - 3rem);
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /* 제목 */
 header {
   display: flex;

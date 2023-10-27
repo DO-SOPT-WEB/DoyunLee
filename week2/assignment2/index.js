@@ -34,16 +34,20 @@ const initBalance = document.querySelector(".init_balance");
 const incomeAmount = document.querySelector(".income_amount");
 const expenseAmount = document.querySelector(".expense_amount");
 
-function initRendering() {
-  initMyAccount();
-  initHistoryList();
+function initRendering(LIST) {
+  calcMyAccount(HISTORY_LIST);
+  ListRendering(HISTORY_LIST);
 }
-// 나의 자산 부분 최초 렌더링
-function initMyAccount() {
+
+document.addEventListener("DOMContentLoaded", () => {
+  initRendering(HISTORY_LIST);
+});
+// 나의 자산 구하기
+function calcMyAccount(LIST) {
   let initIncome = 0,
     initExpense = 0;
 
-  HISTORY_LIST.forEach((elm) => {
+  LIST.forEach((elm) => {
     switch (elm.InOrExpense) {
       case "income": {
         initIncome += Number(elm.amount);
@@ -62,11 +66,11 @@ function initMyAccount() {
   expenseAmount.innerText = initExpense;
 }
 
-// 수입/지출 내역 최초 렌더링
-function initHistoryList() {
+// 수입/지출 내역 element 생성
+function ListRendering(LIST) {
   const list = document.querySelector(".budget_list>ul");
 
-  HISTORY_LIST.forEach((elm) => {
+  LIST.forEach((elm) => {
     const li = document.createElement("li");
 
     const category = document.createElement("span");
@@ -81,11 +85,13 @@ function initHistoryList() {
     amount.classList.add("amount");
     switch (elm.InOrExpense) {
       case "income": {
+        li.classList.add("income_elm");
         amount.classList.add("add");
         amount.innerText = `+${elm.amount}`;
         break;
       }
       case "expense": {
+        li.classList.add("expense_elm");
         amount.classList.add("sub");
         amount.innerText = `-${elm.amount}`;
         break;
@@ -101,4 +107,41 @@ function initHistoryList() {
   });
 }
 
-initRendering();
+//수입/지출 필터링
+function inOutFiltering(LIST) {
+  let curList = document.querySelector(".budget_list>ul");
+  curList.innerHTML = "";
+
+  let newList = [];
+  if (incomeCheckBox.checked) {
+    LIST.forEach((elm) => {
+      if (elm.InOrExpense === "income") {
+        newList.push(elm);
+      }
+    });
+  }
+  if (expenseCheckBox.checked) {
+    if (expenseCheckBox.checked) {
+      LIST.forEach((elm) => {
+        if (elm.InOrExpense === "expense") {
+          newList.push(elm);
+        }
+      });
+    }
+  }
+  return newList;
+}
+
+//checkbox 이벤트 감지
+const incomeCheckBox = document.getElementById("income_check");
+const expenseCheckBox = document.getElementById("expense_check");
+
+incomeCheckBox.addEventListener("change", () => {
+  const newList = inOutFiltering(HISTORY_LIST);
+  console.log(newList);
+  ListRendering(newList);
+});
+expenseCheckBox.addEventListener("change", () => {
+  const newList = inOutFiltering(HISTORY_LIST);
+  ListRendering(newList);
+});
