@@ -144,13 +144,13 @@ expenseCheckBox.addEventListener("change", () => {
 });
 
 //삭제 버튼 클릭 -> 리스트 삭제
-function deleteListElement(delID, LIST) {
-  LIST.forEach((elm, idx) => {
+function deleteListElement(delID) {
+  HISTORY_LIST.forEach((elm, idx) => {
     if (elm.id === Number(delID)) {
-      LIST.splice(idx, 1);
+      HISTORY_LIST.splice(idx, 1);
     }
   });
-  screenRendering(LIST);
+  screenRendering(HISTORY_LIST);
 }
 
 //삭제 확인 모달 보이기
