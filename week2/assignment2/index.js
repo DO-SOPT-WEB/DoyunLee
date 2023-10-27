@@ -2,24 +2,24 @@ let INIT_BALANCE = 0;
 const HISTORY_LIST = [
   {
     id: 1,
+    category: "월급",
+    space: "(주)에스케이씨컴퍼니",
+    amount: "500000",
+    InOrExpense: "income",
+  },
+  {
+    id: 2,
     category: "식비",
     space: "공차 건대로데오점",
     amount: "6000",
     InOrExpense: "expense",
   },
   {
-    id: 2,
+    id: 3,
     category: "셍활",
     space: "CJ 올리브영",
     amount: "37000",
     InOrExpense: "expense",
-  },
-  {
-    id: 3,
-    category: "월급",
-    space: "(주)에스케이씨컴퍼니",
-    amount: "500000",
-    InOrExpense: "income",
   },
   {
     id: 4,
@@ -111,7 +111,6 @@ function ListRendering(LIST) {
 function inOutFiltering(LIST) {
   let curList = document.querySelector(".budget_list>ul");
   curList.innerHTML = "";
-
   let newList = [];
   if (incomeCheckBox.checked) {
     LIST.forEach((elm) => {
@@ -129,7 +128,7 @@ function inOutFiltering(LIST) {
       });
     }
   }
-  return newList;
+  return newList.sort((a, b) => a.id - b.id);
 }
 
 //checkbox 이벤트 감지
@@ -138,7 +137,6 @@ const expenseCheckBox = document.getElementById("expense_check");
 
 incomeCheckBox.addEventListener("change", () => {
   const newList = inOutFiltering(HISTORY_LIST);
-  console.log(newList);
   ListRendering(newList);
 });
 expenseCheckBox.addEventListener("change", () => {
