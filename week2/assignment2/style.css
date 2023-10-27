@@ -225,11 +225,8 @@ header h1 {
   color: red;
 }
 
-/* 삭제 모달 */
-.delete_modal_wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* 모달 기본 디자인 */
+.modal_background {
   position: fixed;
   top: 0;
   left: 0;
@@ -238,16 +235,26 @@ header h1 {
   background: rgba(0, 0, 0, 0.8);
 }
 
-.delete_modal {
+.modal {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: peachpuff;
+}
+
+/* 삭제 모달 */
+.delete_modal_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete_modal {
   width: 80%;
   height: 12.5rem;
-  padding: 3rem;
-  background-color: peachpuff;
   border-radius: 1rem;
+  padding: 3rem;
 }
 
 .delete_modal > h1 {
@@ -297,4 +304,91 @@ footer {
   font-weight: 600;
   border-radius: 1rem;
   border: none;
+  cursor: pointer;
+}
+
+/* 리스트 추가 모달 */
+.add_modal_content {
+  width: 100%;
+  height: 22rem;
+  position: fixed;
+  bottom: 3rem;
+  padding: 3rem;
+}
+
+.add_modal_content > h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 80%;
+  height: 100%;
+  margin-top: 1.3rem;
+}
+
+.in_ex_btns {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+}
+
+.in_ex_btns input[type="checkbox"] {
+  display: none;
+}
+
+.in_ex_btns label {
+  padding: 0.3rem 1rem;
+  color: tomato;
+  border-radius: 0.8rem;
+  border: solid 0.1rem tomato;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.in_ex_btns input[type="checkbox"]:checked + label {
+  background-color: tomato;
+  color: peachpuff;
+}
+
+.select_section,
+.amount_section,
+.content_section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 80%;
+}
+
+.new_modal_btns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+}
+
+.new_modal_btns > button {
+  width: 5rem;
+  height: 2rem;
+  background-color: tomato;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+}
+
+/* 모달 추가 애니메이션 */
+.modal_animation {
+  animation: modalSlide 1s;
+}
+
+@keyframes modalSlide {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -39,9 +39,8 @@ function screenRendering(LIST) {
   calcMyAccount(LIST);
   ListRendering(LIST);
 }
-screenRendering(HISTORY_LIST);
 
-// 나의 자산 구하기
+// 나의 자산 구하기 (총 합계, 수입, 지출)
 function calcMyAccount(LIST) {
   let initIncome = 0,
     initExpense = 0;
@@ -65,7 +64,7 @@ function calcMyAccount(LIST) {
   expenseAmount.innerText = initExpense;
 }
 
-// 수입/지출 내역 element 생성
+// 수입/지출 리스트 element 생성
 function ListRendering(LIST) {
   const list = document.querySelector(".budget_list>ul");
   list.innerHTML = "";
@@ -135,7 +134,6 @@ function inOutFiltering(LIST) {
 //checkbox 이벤트 감지
 const incomeCheckBox = document.getElementById("income_check");
 const expenseCheckBox = document.getElementById("expense_check");
-
 incomeCheckBox.addEventListener("change", () => {
   const newList = inOutFiltering(HISTORY_LIST);
   ListRendering(newList);
@@ -145,7 +143,7 @@ expenseCheckBox.addEventListener("change", () => {
   ListRendering(newList);
 });
 
-//삭제 버튼 이벤트
+//삭제 버튼 클릭 -> 리스트 삭제
 function deleteListElement(delID, LIST) {
   LIST.forEach((elm, idx) => {
     if (elm.id === Number(delID)) {
@@ -155,9 +153,9 @@ function deleteListElement(delID, LIST) {
   screenRendering(LIST);
 }
 
-//삭제 모달
+//삭제 확인 모달 보이기
 function detectDelete(delID, LIST) {
-  const deleteModalWrapper = document.querySelector(".delete_modal_wrapper");
+  const deleteModalWrapper = document.querySelector(".modal_background");
   const deleteModal = document.querySelector(".delete_modal");
   deleteModalWrapper.classList.remove("hidden");
   deleteModal.classList.remove("hidden");
@@ -176,3 +174,116 @@ function detectDelete(delID, LIST) {
     deleteModal.classList.add("hidden");
   });
 }
+
+//리스트 추가 모달 카테고리 생성
+function createSelectOption(LIST, inOrOut) {
+  const selectSection = document.querySelector(".select_section>select");
+  selectSection.innerHTML = "";
+  LIST.forEach((elm) => {
+    if (inOrOut === elm.InOrExpense) {
+      const option = document.createElement("option");
+      option.innerText = elm.category;
+      selectSection.appendChild(option);
+    }
+  });
+}
+
+//리스트 추가 모달창 띄우기
+const listAddBtn = document.querySelector(".add_btn");
+const addModalSection = document.querySelector(".add_modal_section");
+const modalContent = document.querySelector(".add_modal_content");
+listAddBtn.addEventListener("click", () => {
+  addModalSection.classList.remove("hidden");
+  modalContent.classList.add("modal_animation");
+});
+
+//수입 / 지출 카테고리 분류
+const addIncomeBtn = document.getElementById("new_income");
+const addExpenseBtn = document.getElementById("new_expense");
+createSelectOption(HISTORY_LIST, "income");
+
+addIncomeBtn.addEventListener("change", btnToggle);
+addExpenseBtn.addEventListener("change", btnToggle);
+
+function btnToggle() {
+  addIncomeBtn.toggleAttribute("checked");
+  addExpenseBtn.toggleAttribute("checked");
+  if (addIncomeBtn.checked) {
+    createSelectOption(HISTORY_LIST, "income");
+  } else {
+    createSelectOption(HISTORY_LIST, "expense");
+  }
+}
+
+//유효성 검사 - 금액란에 숫자만 입력하도록 검사
+const newAmount = document.querySelector(".amount_section>input ");
+newAmount.addEventListener("change", (e) => {
+  if (isNaN(e.target.value)) {
+    alert("숫자를 입력하세요");
+    e.target.value = "";
+  }
+});
+
+const submitBtn = document.querySelector(".submit_btn");
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  submitForm();
+});
+
+//저장하기 버튼 클릭 시 새 항목 추가 후 원본 리스트에 반영
+const newForm = document.querySelector("form");
+function submitForm() {
+  const newInExList = newForm.querySelectorAll(".in_ex_btns>input");
+  const newCategory = newForm.querySelector(".select_category>option");
+  const newAmount = newForm.querySelector(".amount_section>input");
+  const newContent = newForm.querySelector(".content_section>input");
+
+  //유효성 검사 2 - 모든 폼 입력했는지 검사
+  if (!newAmount.value || !newContent.value) {
+    alert("모든 항목을 입력하세요!");
+  }
+  let inExID = "";
+  newInExList.forEach((elm) => {
+    if (elm.checked) {
+      inExID = elm.id;
+    }
+  });
+
+  let inExState = "";
+  if (inExID === "new_income") {
+    inExState = "income";
+  }
+  if (inExID === "new_expense") {
+    inExState = "expense";
+  }
+
+  const newListElm = [
+    {
+      id: HISTORY_LIST.length + 1,
+      category: newCategory.value,
+      space: newContent.value,
+      amount: newAmount.value,
+      InOrExpense: inExState,
+    },
+  ];
+
+  HISTORY_LIST.push(newListElm[0]);
+  initForm();
+  screenRendering(HISTORY_LIST);
+}
+
+//리스트 추가 후 확인 및 form 비우기
+function initForm() {
+  alert("저장되었습니다!");
+  newForm.reset();
+}
+
+//리스트 추가 모달창 닫기
+const closeBtn = document.querySelector(".close_modal_btn");
+closeBtn.addEventListener("click", () => {
+  addModalSection.classList.add("hidden");
+  modalContent.classList.remove("modal_animation");
+});
+
+//초기 렌더링 함수 실행
+screenRendering(HISTORY_LIST);
