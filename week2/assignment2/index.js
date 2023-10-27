@@ -179,12 +179,19 @@ function detectDelete(delID, LIST) {
 function createSelectOption(LIST, inOrOut) {
   const selectSection = document.querySelector(".select_section>select");
   selectSection.innerHTML = "";
+  const optionList = [];
   LIST.forEach((elm) => {
     if (inOrOut === elm.InOrExpense) {
-      const option = document.createElement("option");
-      option.innerText = elm.category;
-      selectSection.appendChild(option);
+      if (!optionList.includes(elm.category)) {
+        optionList.push(elm.category);
+      }
     }
+  });
+
+  optionList.forEach((elm) => {
+    const option = document.createElement("option");
+    option.innerText = elm;
+    selectSection.appendChild(option);
   });
 }
 
