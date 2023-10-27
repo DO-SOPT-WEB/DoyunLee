@@ -1,5 +1,5 @@
 let INIT_BALANCE = 0;
-const HISTORY_LIST = [
+let HISTORY_LIST = [
   {
     id: 1,
     category: "월급",
@@ -34,14 +34,13 @@ const initBalance = document.querySelector(".init_balance");
 const incomeAmount = document.querySelector(".income_amount");
 const expenseAmount = document.querySelector(".expense_amount");
 
-function initRendering(LIST) {
-  calcMyAccount(HISTORY_LIST);
-  ListRendering(HISTORY_LIST);
+//초기 렌더링
+function screenRendering(LIST) {
+  calcMyAccount(LIST);
+  ListRendering(LIST);
 }
+screenRendering(HISTORY_LIST);
 
-document.addEventListener("DOMContentLoaded", () => {
-  initRendering(HISTORY_LIST);
-});
 // 나의 자산 구하기
 function calcMyAccount(LIST) {
   let initIncome = 0,
@@ -69,7 +68,7 @@ function calcMyAccount(LIST) {
 // 수입/지출 내역 element 생성
 function ListRendering(LIST) {
   const list = document.querySelector(".budget_list>ul");
-
+  list.innerHTML = "";
   LIST.forEach((elm) => {
     const li = document.createElement("li");
 
@@ -100,6 +99,10 @@ function ListRendering(LIST) {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete_btn");
+    deleteBtn.id = elm.id;
+    deleteBtn.onclick = () => {
+      detectDelete(deleteBtn.id, LIST);
+    };
     deleteBtn.innerText = "X";
 
     li.append(category, space, amount, deleteBtn);
@@ -109,8 +112,6 @@ function ListRendering(LIST) {
 
 //수입/지출 필터링
 function inOutFiltering(LIST) {
-  let curList = document.querySelector(".budget_list>ul");
-  curList.innerHTML = "";
   let newList = [];
   if (incomeCheckBox.checked) {
     LIST.forEach((elm) => {
@@ -143,3 +144,35 @@ expenseCheckBox.addEventListener("change", () => {
   const newList = inOutFiltering(HISTORY_LIST);
   ListRendering(newList);
 });
+
+//삭제 버튼 이벤트
+function deleteListElement(delID, LIST) {
+  LIST.forEach((elm, idx) => {
+    if (elm.id === Number(delID)) {
+      LIST.splice(idx, 1);
+    }
+  });
+  screenRendering(LIST);
+}
+
+//삭제 모달
+function detectDelete(delID, LIST) {
+  const deleteModalWrapper = document.querySelector(".delete_modal_wrapper");
+  const deleteModal = document.querySelector(".delete_modal");
+  deleteModalWrapper.classList.remove("hidden");
+  deleteModal.classList.remove("hidden");
+
+  const deleteYes = document.querySelector(".yes_delete");
+  const deleteNo = document.querySelector(".no_delete");
+
+  deleteYes.addEventListener("click", () => {
+    deleteModalWrapper.classList.add("hidden");
+    deleteModal.classList.add("hidden");
+    deleteListElement(delID, LIST);
+  });
+
+  deleteNo.addEventListener("click", () => {
+    deleteModalWrapper.classList.add("hidden");
+    deleteModal.classList.add("hidden");
+  });
+}

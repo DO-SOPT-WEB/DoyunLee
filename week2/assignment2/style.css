@@ -225,6 +225,58 @@ header h1 {
   color: red;
 }
 
+/* 삭제 모달 */
+.delete_modal_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.delete_modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 12.5rem;
+  padding: 3rem;
+  background-color: peachpuff;
+  border-radius: 1rem;
+}
+
+.delete_modal > h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.del_btn_wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.del_btn_wrap > button {
+  width: 4rem;
+  height: 2rem;
+  background-color: transparent;
+  border: 2px solid tomato;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: tomato;
+  cursor: pointer;
+}
+
+.del_btn_wrap > button:hover {
+  background-color: tomato;
+  color: white;
+}
+
 /* 리스트 추가 버튼 */
 footer {
   position: fixed;
