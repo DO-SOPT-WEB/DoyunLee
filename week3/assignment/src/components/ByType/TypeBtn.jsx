@@ -2,7 +2,6 @@ import styled from "styled-components";
 import TypeBtnStart from "./TypeBtnStart";
 
 const TypeBtn = (props) => {
-  // eslint-disable-next-line react/prop-types
   const { isStart, TypeSelect, RandomSelect, isStartHandler, typeHandler } =
     props;
 

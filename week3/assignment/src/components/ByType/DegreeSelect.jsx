@@ -1,21 +1,23 @@
-import DATA from "../../assets/DATA";
 import { useState } from "react";
+import DATA from "../../assets/DATA";
 import { Question, SectionWrapper } from "../../style/MainStyle";
 import { PrevNextBtnWrapper, PrevNextBtn } from "../../style/ButtonStyle";
 import styled from "styled-components";
-import DegreeSelect from "./DegreeSelect";
+import SoloOrGroupSelect from "./SoloOrGroup";
 
-const MoodSelect = () => {
-  const moodList = [...new Set(DATA.map((elm) => elm.mood))];
-  const [selectedMood, setSelectedMood] = useState("");
-  const [isMoodSelected, setIsMoodSelected] = useState(false);
+const DegreeSelect = (props) => {
+  const { selectedMood } = props;
+  const degreeList = [...new Set(DATA.map((elm) => elm.degree))];
+
+  const [selectedDegree, setSelectedDegree] = useState("");
+  const [isDegreeSelected, setIsDegreeSelected] = useState(false);
   const [isNextSelected, setIsNextSelected] = useState(false);
-  const [isPrevSelected, setIsPrevSelected] = useState(false);
 
   const handleBtnChange = (e) => {
-    setSelectedMood(e.target.value);
-    setIsMoodSelected(true);
+    setSelectedDegree(e.target.value);
+    setIsDegreeSelected(true);
   };
+
   const handleNextBtn = () => {
     setIsNextSelected(!isNextSelected);
   };
@@ -24,24 +26,23 @@ const MoodSelect = () => {
     <>
       {!isNextSelected ? (
         <SectionWrapper>
-          <Question>어떤 분위기의 노래를 원해?</Question>
-          <MoodBtnWrapper>
-            {moodList.map((mood) => (
-              <MoodBtn
-                key={mood}
-                value={mood}
-                className={mood === selectedMood ? "active" : ""}
+          <Question>분위기의 정도가 어땠으면 해?</Question>
+          <DegreeBtnWrapper>
+            {degreeList.map((degree) => (
+              <DegreeBtn
+                key={degree}
+                value={degree}
+                className={degree === selectedDegree ? "active" : ""}
                 onClick={handleBtnChange}
               >
-                {mood}
-              </MoodBtn>
+                {degree}
+              </DegreeBtn>
             ))}
-          </MoodBtnWrapper>
-
+          </DegreeBtnWrapper>
           <PrevNextBtnWrapper>
             <PrevNextBtn>이전으로</PrevNextBtn>
             <PrevNextBtn
-              disabled={isMoodSelected === false}
+              disabled={isDegreeSelected === false}
               onClick={handleNextBtn}
             >
               다음으로
@@ -49,23 +50,25 @@ const MoodSelect = () => {
           </PrevNextBtnWrapper>
         </SectionWrapper>
       ) : (
-        <DegreeSelect selectedMood={selectedMood} />
+        <SoloOrGroupSelect
+          selectedMood={selectedMood}
+          selectedDegree={selectedDegree}
+        />
       )}
     </>
   );
 };
+export default DegreeSelect;
 
-export default MoodSelect;
-
-const MoodBtnWrapper = styled.article`
+const DegreeBtnWrapper = styled.article`
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 1rem;
 `;
 
-const MoodBtn = styled.button`
-  width: 10rem;
+const DegreeBtn = styled.button`
+  width: 14rem;
   height: 15rem;
   border: none;
   border-radius: 1rem;
