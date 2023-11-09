@@ -23,3 +23,22 @@ export const StartBtn = styled.button`
     color: #ffffff;
   }
 `;
+
+export const PrevNextBtnWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+`;
+
+export const PrevNextBtn = styled.button`
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+
+  &:not(:disabled):hover {
+    background-color: #00897b;
+    color: #ffffff;
+    cursor: pointer;
+  }
+`;

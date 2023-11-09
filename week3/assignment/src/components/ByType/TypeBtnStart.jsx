@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { StartBtn } from "../../style/ButtonStyle";
-// import { MoodSelect } from "./MoodSelect";
+import MoodSelect from "./MoodSelect";
 
 const TypeBtnStart = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -15,7 +15,9 @@ const TypeBtnStart = (props) => {
           <SelectTypeBtn>취향대로 추천</SelectTypeBtn>
           <StartBtn onClick={isStartHandler}>Start!</StartBtn>
         </TypeWrapper>
-      ) : null}
+      ) : (
+        <MoodSelect />
+      )}
     </>
   );
 };
