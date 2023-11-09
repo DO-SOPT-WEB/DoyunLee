@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StartBtn } from "../../style/ButtonStyle";
+import Timer from "./CountDown";
 
 const RandomBtnStart = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -14,7 +15,9 @@ const RandomBtnStart = (props) => {
           <SelectRandomBtn>랜덤으로 추천</SelectRandomBtn>
           <StartBtn onClick={isStartHandler}>Start!</StartBtn>
         </RandomWrapper>
-      ) : null}
+      ) : (
+        <Timer isStart={isStart} isStartHandler={isStartHandler} />
+      )}
     </>
   );
 };

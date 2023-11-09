@@ -4,7 +4,7 @@ export const SectionWrapper = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
   height: 40rem;
   margin: 5rem 7rem;
@@ -13,8 +13,8 @@ export const SectionWrapper = styled.article`
 `;
 
 export const Question = styled.h2`
-  width: 80%;
-  padding: 2rem;
+  width: 40rem;
+  padding: 1.5rem;
 
   border: none;
   border-radius: 1rem;

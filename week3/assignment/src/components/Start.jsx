@@ -26,7 +26,7 @@ const Start = () => {
   return (
     <>
       <SectionWrapper>
-        <Question>원하는 추천 방식을 골라줘!</Question>
+        {!isStart && <Question>원하는 추천 방식을 골라줘!</Question>}
         <ButtonWrapper>
           <TypeBtn
             isStart={isStart}
