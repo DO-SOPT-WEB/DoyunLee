@@ -3,7 +3,20 @@ import { Question, SectionWrapper } from "../../style/MainStyle";
 import DATA from "../../assets/DATA";
 
 const ByTypeResult = (props) => {
-  const { isStartHandler, selectedMood, selectedDegree, selectedCnt } = props;
+  const {
+    isStart,
+    setIsStart,
+    isStartHandler,
+    selectedMood,
+    selectedDegree,
+    selectedCnt,
+  } = props;
+
+  const resetState = () => {};
+  const backToFront = () => {};
+  const resetIsStart = () => {
+    isStart ? setIsStart(false) : setIsStart(true);
+  };
 
   let resIdx = 0;
   DATA.forEach((elm, idx) => {
@@ -19,14 +32,12 @@ const ByTypeResult = (props) => {
   const SongTitle = DATA[resIdx].title;
 
   return (
-    <>
-      <SectionWrapper>
-        <Question>오늘의 추천 노래는 바로!</Question>
-        <Img src={AlbumCover} alt="취향 노래 커버 이미지"></Img>
-        <Title>{SongTitle}</Title>
-        <RetryBtn onClick={isStartHandler}>다시하기</RetryBtn>
-      </SectionWrapper>
-    </>
+    <SectionWrapper>
+      <Question>오늘의 추천 노래는 바로!</Question>
+      <Img src={AlbumCover} alt="취향 노래 커버 이미지"></Img>
+      <Title>{SongTitle}</Title>
+      <RetryBtn onClick={isStartHandler}>다시하기</RetryBtn>
+    </SectionWrapper>
   );
 };
 export default ByTypeResult;

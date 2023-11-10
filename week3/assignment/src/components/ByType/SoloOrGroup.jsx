@@ -28,7 +28,7 @@ const SoloOrGroupSelect = (props) => {
 
   const handlePrev = () => {
     setCurrentStep(currentStep - 1);
-    setIsStart(false);
+    // setIsStart(false);
     console.log(currentStep - 1);
   };
 
@@ -82,6 +82,7 @@ const SoloOrGroupSelect = (props) => {
       ) : currentStep === 4 ? (
         <ByTypeResult
           isStart={isStart}
+          setIsStart={setIsStart}
           isStartHandler={isStartHandler}
           selectedMood={selectedMood}
           selectedDegree={selectedDegree}

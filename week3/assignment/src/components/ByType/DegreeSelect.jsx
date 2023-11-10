@@ -66,6 +66,7 @@ const DegreeSelect = (props) => {
       {currentStep === 3 ? (
         <SoloOrGroupSelect
           isStart={isStart}
+          setIsStart={setIsStart}
           isStartHandler={isStartHandler}
           selectedMood={selectedMood}
           selectedDegree={selectedDegree}
