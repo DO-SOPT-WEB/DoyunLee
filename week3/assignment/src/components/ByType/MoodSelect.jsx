@@ -4,25 +4,43 @@ import { Question, SectionWrapper } from "../../style/MainStyle";
 import { PrevNextBtnWrapper, PrevNextBtn } from "../../style/ButtonStyle";
 import styled from "styled-components";
 import DegreeSelect from "./DegreeSelect";
+import TypeBtnStart from "./TypeBtnStart";
 
-const MoodSelect = () => {
+const MoodSelect = (props) => {
   const moodList = [...new Set(DATA.map((elm) => elm.mood))];
   const [selectedMood, setSelectedMood] = useState("");
+
   const [isMoodSelected, setIsMoodSelected] = useState(false);
   const [isNextSelected, setIsNextSelected] = useState(false);
-  const [isPrevSelected, setIsPrevSelected] = useState(false);
+
+  const [currentStep, setCurrentStep] = useState(1); // Assuming MoodSelect is the first step
+
+  const { isStart, isStartHandler, initIsStart, setIsStart } = props;
 
   const handleBtnChange = (e) => {
     setSelectedMood(e.target.value);
     setIsMoodSelected(true);
   };
+
   const handleNextBtn = () => {
     setIsNextSelected(!isNextSelected);
   };
 
+  const handlePrev = () => {
+    setCurrentStep(currentStep - 1);
+    setIsStart(false);
+    console.log(currentStep - 1);
+  };
+
+  const handleNext = () => {
+    setCurrentStep(currentStep + 1);
+    setIsStart(true);
+    console.log(currentStep + 1);
+  };
+
   return (
     <>
-      {!isNextSelected ? (
+      {!isNextSelected && currentStep === 1 ? (
         <SectionWrapper>
           <Question>어떤 분위기의 노래를 원해?</Question>
           <MoodBtnWrapper>
@@ -39,17 +57,27 @@ const MoodSelect = () => {
           </MoodBtnWrapper>
 
           <PrevNextBtnWrapper>
-            <PrevNextBtn>이전으로</PrevNextBtn>
-            <PrevNextBtn
-              disabled={isMoodSelected === false}
-              onClick={handleNextBtn}
-            >
-              다음으로
-            </PrevNextBtn>
+            {<PrevNextBtn onClick={handlePrev}>이전으로</PrevNextBtn>}
+            {currentStep < 4 && (
+              <PrevNextBtn
+                disabled={isMoodSelected === false}
+                onClick={handleNext}
+              >
+                다음으로
+              </PrevNextBtn>
+            )}
           </PrevNextBtnWrapper>
         </SectionWrapper>
+      ) : currentStep === 2 ? (
+        <DegreeSelect
+          isStart={isStart}
+          setIsStart={setIsStart}
+          isStartHandler={isStartHandler}
+          selectedMood={selectedMood}
+          isNextSelected={isNextSelected}
+        />
       ) : (
-        <DegreeSelect selectedMood={selectedMood} />
+        currentStep === 0 && <TypeBtnStart />
       )}
     </>
   );

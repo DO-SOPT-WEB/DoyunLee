@@ -1,16 +1,9 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { Question, SectionWrapper } from "../../style/MainStyle";
 import DATA from "../../assets/DATA";
-import TypeBtnStart from "./TypeBtnStart";
 
 const ByTypeResult = (props) => {
-  const { selectedMood, selectedDegree, selectedCnt } = props;
-  const [isRetry, isRetryHandler] = useState(false);
-
-  const RetryHandler = () => {
-    isRetryHandler(!isRetry);
-  };
+  const { isStartHandler, selectedMood, selectedDegree, selectedCnt } = props;
 
   let resIdx = 0;
   DATA.forEach((elm, idx) => {
@@ -27,16 +20,12 @@ const ByTypeResult = (props) => {
 
   return (
     <>
-      {!isRetry ? (
-        <SectionWrapper>
-          <Question>오늘의 추천 노래는 바로!</Question>
-          <Img src={AlbumCover} alt="취향 노래 커버 이미지"></Img>
-          <Title>{SongTitle}</Title>
-          <RetryBtn onClick={RetryHandler}>다시하기</RetryBtn>
-        </SectionWrapper>
-      ) : (
-        <TypeBtnStart isRetry={isRetry} RetryHandler={RetryHandler} />
-      )}
+      <SectionWrapper>
+        <Question>오늘의 추천 노래는 바로!</Question>
+        <Img src={AlbumCover} alt="취향 노래 커버 이미지"></Img>
+        <Title>{SongTitle}</Title>
+        <RetryBtn onClick={isStartHandler}>다시하기</RetryBtn>
+      </SectionWrapper>
     </>
   );
 };

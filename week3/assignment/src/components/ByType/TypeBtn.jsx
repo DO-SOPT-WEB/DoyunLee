@@ -2,8 +2,15 @@ import styled from "styled-components";
 import TypeBtnStart from "./TypeBtnStart";
 
 const TypeBtn = (props) => {
-  const { isStart, TypeSelect, RandomSelect, isStartHandler, typeHandler } =
-    props;
+  const {
+    isStart,
+    TypeSelect,
+    RandomSelect,
+    isStartHandler,
+    typeHandler,
+    initIsStart,
+    setIsStart,
+  } = props;
 
   return (
     <>
@@ -13,7 +20,12 @@ const TypeBtn = (props) => {
       ) : null}
       {/* Type버튼이 눌렸을 때 : 취향대로 추천, 시작하기 버튼 있는 페이지로 이동 */}
       {TypeSelect && !RandomSelect ? (
-        <TypeBtnStart isStart={isStart} isStartHandler={isStartHandler} />
+        <TypeBtnStart
+          isStart={isStart}
+          isStartHandler={isStartHandler}
+          initIsStart={initIsStart}
+          setIsStart={setIsStart}
+        />
       ) : null}
     </>
   );

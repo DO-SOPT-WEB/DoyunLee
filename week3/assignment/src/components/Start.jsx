@@ -19,8 +19,13 @@ const Start = () => {
   const typeHandler = () => {
     setTypeSelect(!TypeSelect);
   };
+
   const randomHandler = () => {
     setRandomSelect(!RandomSelect);
+  };
+
+  const initIsStart = () => {
+    setIsStart(false);
   };
 
   return (
@@ -30,11 +35,13 @@ const Start = () => {
         <ButtonWrapper>
           <TypeBtn
             isStart={isStart}
+            initIsStart={initIsStart}
             TypeSelect={TypeSelect}
             RandomSelect={RandomSelect}
             isStartHandler={isStartHandler}
             typeHandler={typeHandler}
             randomHandler={randomHandler}
+            setIsStart={setIsStart}
           />
           <RandomBtn
             isStart={isStart}

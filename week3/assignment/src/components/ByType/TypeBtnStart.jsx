@@ -1,10 +1,19 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { StartBtn } from "../../style/ButtonStyle";
 import MoodSelect from "./MoodSelect";
 
 const TypeBtnStart = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { isStart, isStartHandler } = props;
+  const { isStart, isStartHandler, initStartHandler, initIsStart, setIsStart } =
+    props;
+  const [isPrevSelected, setIsPrevSelected] = useState(false);
+  console.log("TypeBtnStart - isStart ", isStart);
+
+  const startHandler = () => {
+    initIsStart();
+    isStartHandler();
+  };
 
   return (
     <>
@@ -13,10 +22,17 @@ const TypeBtnStart = (props) => {
       {!isStart ? (
         <TypeWrapper>
           <SelectTypeBtn>취향대로 추천</SelectTypeBtn>
-          <StartBtn onClick={isStartHandler}>Start!</StartBtn>
+          <StartBtn onClick={startHandler}>Start!</StartBtn>
         </TypeWrapper>
       ) : (
-        <MoodSelect />
+        <MoodSelect
+          isStart={isStart}
+          isStartHandler={isStartHandler}
+          initStartHandler={initStartHandler}
+          isPrevSelected={isPrevSelected}
+          initIsStart={initIsStart}
+          setIsStart={setIsStart}
+        />
       )}
     </>
   );
