@@ -1,34 +1,6 @@
+import { HISTORY_LIST } from "./DATA.js";
+
 let INIT_BALANCE = 0;
-let HISTORY_LIST = [
-  {
-    id: 1,
-    category: "월급",
-    space: "(주)에스케이씨컴퍼니",
-    amount: "500000",
-    InOrExpense: "income",
-  },
-  {
-    id: 2,
-    category: "식비",
-    space: "공차 건대로데오점",
-    amount: "6000",
-    InOrExpense: "expense",
-  },
-  {
-    id: 3,
-    category: "생활",
-    space: "CJ 올리브영",
-    amount: "37000",
-    InOrExpense: "expense",
-  },
-  {
-    id: 4,
-    category: "기타",
-    space: "카카오뱅크 캐시백지급",
-    amount: "3000",
-    InOrExpense: "income",
-  },
-];
 
 const initBalance = document.querySelector(".init_balance");
 const incomeAmount = document.querySelector(".income_amount");
@@ -94,6 +66,8 @@ function ListRendering(LIST) {
         amount.innerText = `-${elm.amount}`;
         break;
       }
+      default:
+        break;
     }
 
     const deleteBtn = document.createElement("button");
@@ -119,14 +93,13 @@ function inOutFiltering(LIST) {
       }
     });
   }
+
   if (expenseCheckBox.checked) {
-    if (expenseCheckBox.checked) {
-      LIST.forEach((elm) => {
-        if (elm.InOrExpense === "expense") {
-          newList.push(elm);
-        }
-      });
-    }
+    LIST.forEach((elm) => {
+      if (elm.InOrExpense === "expense") {
+        newList.push(elm);
+      }
+    });
   }
   return newList.sort((a, b) => a.id - b.id);
 }
@@ -146,9 +119,7 @@ expenseCheckBox.addEventListener("change", () => {
 //삭제 버튼 클릭 -> 리스트 삭제
 function deleteListElement(delID) {
   HISTORY_LIST.forEach((elm, idx) => {
-    if (elm.id === Number(delID)) {
-      HISTORY_LIST.splice(idx, 1);
-    }
+    elm.id === Number(delID) && HISTORY_LIST.splice(idx, 1);
   });
   screenRendering(HISTORY_LIST);
 }
@@ -215,11 +186,9 @@ addExpenseBtn.addEventListener("change", btnToggle);
 function btnToggle() {
   addIncomeBtn.toggleAttribute("checked");
   addExpenseBtn.toggleAttribute("checked");
-  if (addIncomeBtn.checked) {
-    createSelectOption(HISTORY_LIST, "income");
-  } else {
-    createSelectOption(HISTORY_LIST, "expense");
-  }
+  addIncomeBtn.checked
+    ? createSelectOption(HISTORY_LIST, "income")
+    : createSelectOption(HISTORY_LIST, "expense");
 }
 
 //유효성 검사 - 금액란에 숫자만 입력하도록 검사
@@ -251,18 +220,11 @@ function submitForm() {
   }
   let inExID = "";
   newInExList.forEach((elm) => {
-    if (elm.checked) {
-      inExID = elm.id;
-    }
+    elm.checked && (inExID = elm.id);
   });
 
   let inExState = "";
-  if (inExID === "new_income") {
-    inExState = "income";
-  }
-  if (inExID === "new_expense") {
-    inExState = "expense";
-  }
+  inExID === "new_income" ? (inExState = "income") : (inExState = "expense");
 
   const newListElm = [
     {
