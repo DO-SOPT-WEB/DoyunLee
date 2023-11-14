@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>💸용감자의 가계부💸</title>
+  </head>
+  <body>
+    <!-- 제목 -->
+    <header><h1>💸 용감자의 가계부 💸</h1></header>
+    <hr />
+    <!-- 나의 자산 부분 -->
+    <section class="total_budget_section">
+      <div class="total_budget_wrapper">
+        <h2>나의 자산</h2>
+        <h3 class="init_balance"></h3>
+        <div class="todays_history">
+          <article id="income">
+            <span class="icon">+</span>
+            <span class="income_amount">0</span>
+          </article>
+          <article id="expense">
+            <span class="icon">-</span>
+            <span class="expense_amount">0</span>
+          </article>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <!-- 날짜, 수입/지출 버튼 -->
+    <section class="list_option_section">
+      <article class="date_section">
+        <button type="button">
+          <img src="./img/chevron-left-solid.svg" alt="왼쪽 화살표" />
+        </button>
+        <span>7월 10일</span>
+        <button type="button">
+          <img src="./img/chevron-right-solid.svg" alt="오른쪽 화살표" />
+        </button>
+      </article>
+      <article class="option_bottom_wrapper">
+        <span>내역 리스트</span>
+        <div class="filtering_btns">
+          <input type="checkbox" id="income_check" checked /><label
+            for="income_check"
+            >수입</label
+          >
+          <input type="checkbox" id="expense_check" checked /><label
+            for="expense_check"
+            >지출</label
+          >
+        </div>
+      </article>
+    </section>
+    <hr />
+    <!-- 수입/지출 내역 -->
+    <section class="budget_list">
+      <ul></ul>
+    </section>
+
+    <!-- 리스트 삭제 모달 -->
+    <section class="modal_background delete_modal_section hidden">
+      <article class="delete_modal modal hidden">
+        <h2>정말 삭제하시겠습니까?</h2>
+        <div class="del_btn_wrap">
+          <button type="button" class="yes_delete">예</button>
+          <button type="button" class="no_delete">아니요</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- 리스트 추가 모달 -->
+    <section class="add_modal_section modal_background hidden">
+      <article class="add_modal_content modal">
+        <h2>내역 추가</h2>
+        <form name="list_add_form" action="">
+          <div class="in_ex_btns">
+            <input type="checkbox" id="new_income" checked /><label
+              for="new_income"
+              >수입</label
+            >
+            <input type="checkbox" id="new_expense" /><label for="new_expense"
+              >지출</label
+            >
+          </div>
+          <div class="select_section">
+            <span>종류</span>
+            <select class="select_category"></select>
+          </div>
+          <div class="amount_section">
+            <span>금액</span>
+            <input type="text" />
+          </div>
+          <div class="content_section">
+            <span>내용</span>
+            <input type="text" />
+          </div>
+          <div class="new_modal_btns">
+            <button type="submit" class="submit_btn" onclick="submitForm">
+              저장하기
+            </button>
+            <button type="button" class="close_modal_btn">닫기</button>
+          </div>
+        </form>
+      </article>
+    </section>
+    <!-- 리스트 추가 버튼 -->
+    <footer>
+      <button type="button" class="add_btn">+</button>
+    </footer>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
