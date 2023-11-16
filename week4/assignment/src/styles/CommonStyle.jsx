@@ -19,11 +19,15 @@ export const Btn = styled.button`
   height: 3rem;
 
   padding: 1rem;
-  margin-top: 0.7rem;
+  margin-top: 1rem;
 
   border: none;
   border-radius: 0.4rem;
 
   font-size: 1.1rem;
   cursor: pointer;
+`;
+
+export const Title = styled.h1`
+  font-size: 1.6rem;
 `;
