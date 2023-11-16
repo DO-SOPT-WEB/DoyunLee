@@ -8,17 +8,17 @@ export const TypeList = [
   {
     key: "Password",
     title: "비밀번호",
-    type: "password",
+    type: "text",
     placeholder: "비밀번호를 입력해주세요",
   },
   {
     key: "ConfirmPassword",
     title: "비밀번호 확인",
-    type: "password",
+    type: "text",
     placeholder: "비밀번호를 다시 한 번 입력해주세요",
   },
   {
-    key: "nickname",
+    key: "Nickname",
     title: "닉네임",
     type: "text",
     placeholder: "닉네임을 입력해주세요",
