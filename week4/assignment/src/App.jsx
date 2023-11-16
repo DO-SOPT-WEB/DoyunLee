@@ -1,15 +1,16 @@
 // import Router from "./components/Router";
-import { useState } from "react";
-import LogInPage from "./pages/login/loginPage";
-// import { GlobalStyle } from "./styles/GlobalStyle.js";
+import LogInPage from "./pages/login/LoginPage";
+import MyPage from "./pages/mypage/MyPage";
+import SignUp from "./pages/signup/SignupPage";
+import Router from "./Router";
 
 function App() {
-  const [state, setState] = useState("");
-
   return (
     <>
-      <LogInPage />
-      {/* <Router /> */}
+      {/* <LogInPage />
+      <SignUp />
+      <MyPage /> */}
+      <Router />
     </>
   );
 }
