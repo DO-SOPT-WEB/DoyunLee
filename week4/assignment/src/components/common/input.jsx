@@ -18,12 +18,12 @@ const InputWrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `;
 
 // input type:text, password
 const Input = styled.input`
-  width: 50%;
+  width: 60%;
   height: 1.5rem;
   padding: 0.3rem;
 `;
