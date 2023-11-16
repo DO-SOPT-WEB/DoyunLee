@@ -3,9 +3,14 @@ import PerInput from "../../components/common/input";
 import { Wrapper, Title, Btn } from "../../styles/CommonStyle";
 import { TypeList } from "../../assets/DATA";
 import LoginBtn from "../../components/common/loginBtn";
+import { useNavigate } from "react-router-dom";
 // import SignUpBtn from "../../components/common/signupBtn";
 
 const LogInPage = () => {
+  const navigate = useNavigate();
+  const GoToSignUp = () => {
+    navigate("/signup");
+  };
   return (
     <>
       <Wrapper>
@@ -20,8 +25,10 @@ const LogInPage = () => {
           type={TypeList[1].type}
           placeholder={TypeList[1].placeholder}
         />
-        <LoginBtn />
-        <SignUpBtn>회원가입</SignUpBtn>
+        <LoginBtn type="submit" />
+        <SignUpBtn type="button" onClick={GoToSignUp}>
+          회원가입
+        </SignUpBtn>
       </Wrapper>
     </>
   );
