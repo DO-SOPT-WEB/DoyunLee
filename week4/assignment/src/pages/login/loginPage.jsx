@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import PerInput from "../../components/common/input";
 import { Wrapper, Title, Btn } from "../../styles/CommonStyle";
-import TypeList from "../../assets/DATA";
+import { TypeList } from "../../assets/DATA";
 import LoginBtn from "../../components/common/loginBtn";
 // import SignUpBtn from "../../components/common/signupBtn";
 
