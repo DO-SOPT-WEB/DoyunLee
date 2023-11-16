@@ -1,4 +1,4 @@
-const TypeList = [
+export const TypeList = [
   {
     key: "ID",
     title: "ID",
@@ -25,4 +25,5 @@ const TypeList = [
   },
 ];
 
-export default TypeList;
+export const Profile =
+  "https://mblogthumb-phinf.pstatic.net/MjAyMjEwMjRfMjMy/MDAxNjY2NTQxNTAzMzI5.xQSPMKxEVSKTshiz7jCMBkKoHZcKWN7DPiSY5uFXj-4g.UrtqDuXKmjWV5delpGbQQ_JIiexPpsMQAEpnIKa304Eg.JPEG.gogoa25/IMG_7098.JPG?type=w800";
