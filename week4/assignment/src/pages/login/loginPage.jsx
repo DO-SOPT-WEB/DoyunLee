@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import PerInput from "../../components/common/input";
-// import MainWrapper from "../../components/common/mainWrapper";
-import { Wrapper } from "../../styles/CommonStyle";
+import { Wrapper, Title, Btn } from "../../styles/CommonStyle";
 import TypeList from "../../assets/DATA";
 import LoginBtn from "../../components/common/loginBtn";
-import SignUpBtn from "../../components/common/signupBtn";
+// import SignUpBtn from "../../components/common/signupBtn";
 
 const LogInPage = () => {
   return (
@@ -22,7 +21,7 @@ const LogInPage = () => {
           placeholder={TypeList[1].placeholder}
         />
         <LoginBtn />
-        <SignUpBtn />
+        <SignUpBtn>회원가입</SignUpBtn>
       </Wrapper>
     </>
   );
@@ -30,6 +29,6 @@ const LogInPage = () => {
 
 export default LogInPage;
 
-const Title = styled.h1`
-  font-size: 1.6rem;
+const SignUpBtn = styled(Btn)`
+  background-color: #fffffff;
 `;
