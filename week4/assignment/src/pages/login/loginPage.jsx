@@ -4,7 +4,6 @@ import { Wrapper, Title, Btn } from "../../styles/CommonStyle";
 import { TypeList } from "../../assets/DATA";
 import LoginBtn from "../../components/common/loginBtn";
 import { useNavigate } from "react-router-dom";
-// import SignUpBtn from "../../components/common/signupBtn";
 
 const LogInPage = () => {
   const navigate = useNavigate();
