@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
-const SignUpInput = ({ title, type, placeholder }) => {
+const SignUpInput = ({ title, type, placeholder, value, onChange }) => {
   return (
     <InputWrapper>
       <Title>{title}</Title>
       <BtnWrapper>
-        <Input type={type} placeholder={placeholder} />
+        <Input
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
         <Button>중복 체크</Button>
       </BtnWrapper>
     </InputWrapper>
