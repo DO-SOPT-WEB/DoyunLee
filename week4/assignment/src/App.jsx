@@ -7,9 +7,6 @@ import Router from "./Router";
 function App() {
   return (
     <>
-      {/* <LogInPage />
-      <SignUp />
-      <MyPage /> */}
       <Router />
     </>
   );

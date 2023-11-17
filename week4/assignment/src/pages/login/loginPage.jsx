@@ -23,7 +23,6 @@ const LogInPage = () => {
           password: inputPW,
         }
       );
-      console.log("login 성공", response);
       navigate(`/mypage/${response.data.id}`);
     } catch (error) {
       console.log(error);

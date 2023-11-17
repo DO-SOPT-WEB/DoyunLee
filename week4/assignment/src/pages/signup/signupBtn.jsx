@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import { Btn } from "../../styles/CommonStyle";
 
-const SignUpBtn = ({
-  onClick,
-  disabled,
-  isLoginPage,
-  isSignUpPage,
-  isActive,
-}) => {
+const SignUpBtn = ({ onClick, isLoginPage, isSignUpPage, isActive }) => {
   return (
     <>
       {isLoginPage && (
@@ -21,7 +15,6 @@ const SignUpBtn = ({
       )}
     </>
   );
-  // login페이지에서, disable일 때, enable일 때
 };
 export default SignUpBtn;
 

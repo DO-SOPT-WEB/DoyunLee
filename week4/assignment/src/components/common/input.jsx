@@ -27,7 +27,6 @@ const Title = styled.h2`
   font-size: 1.1rem;
 `;
 
-// input type:text, password
 const Input = styled.input`
   width: 60%;
   height: 1.5rem;

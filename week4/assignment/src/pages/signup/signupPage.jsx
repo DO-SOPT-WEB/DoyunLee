@@ -14,6 +14,7 @@ const SignUp = () => {
   const [isIdValid, setIsIdValid] = useState(null);
   //SignUp 페이지임을 알려주는 state
   const [isSignUpPage, setIsSignUpPage] = useState(true);
+
   //입력받은 ID,비밀번호, 비밀번호확인, 닉네임
   const [newID, setNewID] = useState("");
   const [newPassword, setNewPassword] = useState("");
