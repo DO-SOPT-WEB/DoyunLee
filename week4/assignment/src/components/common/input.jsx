@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-const PerInput = ({ title, type, placeholder }) => {
+const PerInput = ({ title, type, placeholder, value, onChange }) => {
   return (
     <InputWrapper>
       <Title>{title}</Title>
-      <Input type={type} placeholder={placeholder} />
+      <Input
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
     </InputWrapper>
   );
 };
