@@ -10,6 +10,7 @@ import { useState } from "react";
 const LogInPage = () => {
   const [inputUsername, setInputUsername] = useState("");
   const [inputPW, setInputPW] = useState("");
+  const [isLoginPage, setIsLoginPage] = useState(true);
 
   const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ const LogInPage = () => {
         }
       );
       console.log("login 성공", response);
-      navigate(`/mypage/${response.data.username}`);
+      navigate(`/mypage/${response.data.id}`);
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +57,7 @@ const LogInPage = () => {
           }}
         />
         <LoginBtn onClick={handlePost} />
-        <SignUpBtn type="button" onClick={GoToSignUp}>
+        <SignUpBtn type="button" onClick={GoToSignUp} isLoginPage={isLoginPage}>
           회원가입
         </SignUpBtn>
       </Wrapper>
