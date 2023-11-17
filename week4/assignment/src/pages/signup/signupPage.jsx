@@ -4,7 +4,7 @@ import { TypeList } from "../../assets/DATA";
 import SignUpInput from "../../components/common/signupInput";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import SignUpBtn from "../../components/common/signupBtn";
 
@@ -12,10 +12,9 @@ const SignUp = () => {
   // 회원가입 버튼 활성화
   const [isActive, setIsActive] = useState(false);
   // 중복 체크 결과
-  const [isExist, setIsExist] = useState(null);
-  //password 일치 결과
-  const [isCheck, setIsCheck] = useState("");
-
+  const [isIdValid, setIsIdValid] = useState(null);
+  //SignUp 페이지임을 알려주는 state
+  const [isSignUpPage, setIsSignUpPage] = useState(true);
   //입력받은 ID,비밀번호, 비밀번호확인, 닉네임
   const [newID, setNewID] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -38,6 +37,22 @@ const SignUp = () => {
     }
   };
 
+  //input의 요소와 중복체크가 이루어졌는지 확인하는 함수
+  const checkInputFilled = () => {
+    return (
+      newID !== "" &&
+      newPassword !== "" &&
+      confirmPassword !== "" &&
+      newPassword === confirmPassword &&
+      newNickname !== "" &&
+      isIdValid
+    );
+  };
+
+  useEffect(() => {
+    setIsActive(checkInputFilled());
+  }, [newID, newPassword, confirmPassword, newNickname, isIdValid]);
+
   return (
     <>
       <Wrapper>
@@ -50,6 +65,8 @@ const SignUp = () => {
           onChange={(e) => {
             setNewID(e.target.value);
           }}
+          isIdValid={isIdValid}
+          setIsIdValid={setIsIdValid}
         />
         <PerInput
           title={TypeList[1].title}
@@ -78,7 +95,13 @@ const SignUp = () => {
             setNewNickname(e.target.value);
           }}
         />
-        <SignUpBtn onClick={handlePost}>회원가입</SignUpBtn>
+        <SignUpBtn
+          onClick={handlePost}
+          isSignUpPage={isSignUpPage}
+          isActive={isActive}
+        >
+          회원가입
+        </SignUpBtn>
       </Wrapper>
     </>
   );
