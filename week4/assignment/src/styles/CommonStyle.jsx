@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const Wrapper = styled.form`
+export const Wrapper = styled.div`
   width: 25rem;
   height: 20rem;
 
