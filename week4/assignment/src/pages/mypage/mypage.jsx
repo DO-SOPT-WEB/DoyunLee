@@ -1,9 +1,42 @@
 import { TypeList, Profile } from "../../assets/DATA";
-import { Wrapper, Title, Btn } from "../../styles/CommonStyle";
+import { Wrapper, Title } from "../../styles/CommonStyle";
 import PerInput from "../../components/common/input";
 import styled from "styled-components";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const MyPage = () => {
+  const [getUsername, setGetUsername] = useState("");
+  const [getNickname, setGetNickname] = useState("");
+
+  const { userId } = useParams();
+
+  const navigate = useNavigate();
+
+  const handleGet = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_APP_BASE_URL}/api/v1/members/${userId}`,
+        {
+          userId: userId,
+        }
+      );
+      const { data } = response;
+      setGetUsername(data.username);
+      setGetNickname(data.nickname);
+    } catch {
+      console.log("error");
+    }
+  };
+  const handleOnClick = () => {
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    handleGet();
+  }, []);
+
   return (
     <>
       <Wrapper>
@@ -11,11 +44,13 @@ const MyPage = () => {
         <SectionWrapper>
           <ProfileImg src={Profile} />
           <InputWrapper>
-            <PerInput placeholder={TypeList[0].title} />
-            <PerInput placeholder={TypeList[3].title} />
+            <PerInput placeholder={getUsername} disabled={true} />
+            <PerInput placeholder={getNickname} disabled={true} />
           </InputWrapper>
         </SectionWrapper>
-        <LogOutBtn>로그아웃</LogOutBtn>
+        <LogOutBtn type="button" onClick={handleOnClick}>
+          로그아웃
+        </LogOutBtn>
       </Wrapper>
     </>
   );
