@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PerInput = ({ title, type, placeholder, value, onChange }) => {
+const PerInput = ({ title, type, placeholder, value, onChange, disabled }) => {
   return (
     <InputWrapper>
       <Title>{title}</Title>
@@ -9,6 +9,7 @@ const PerInput = ({ title, type, placeholder, value, onChange }) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        disabled={disabled}
       />
     </InputWrapper>
   );
