@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Btn } from "../../styles/CommonStyle";
 
-const LoginBtn = () => {
+const LoginBtn = ({ onClick }) => {
   return (
     <>
-      <Button>로그인</Button>
+      <Button onClick={onClick}>로그인</Button>
     </>
   );
 };
