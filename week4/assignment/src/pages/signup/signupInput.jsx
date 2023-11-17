@@ -1,7 +1,7 @@
 import axios from "axios";
 import styled from "styled-components";
 import { useEffect } from "react";
-import IdCheckBtn from "./idCheckBtn";
+import IdCheckBtn from "../../components/common/idCheckBtn";
 
 const SignUpInput = ({
   title,

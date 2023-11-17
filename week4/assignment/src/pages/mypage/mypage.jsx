@@ -1,4 +1,4 @@
-import { TypeList, Profile } from "../../assets/DATA";
+import { Profile } from "../../assets/DATA";
 import { Wrapper, Title } from "../../styles/CommonStyle";
 import PerInput from "../../components/common/input";
 import styled from "styled-components";

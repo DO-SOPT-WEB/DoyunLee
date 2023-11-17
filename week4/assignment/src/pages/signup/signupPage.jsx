@@ -1,12 +1,11 @@
 import PerInput from "../../components/common/input";
-import { Wrapper, Title, Btn } from "../../styles/CommonStyle";
+import { Wrapper, Title } from "../../styles/CommonStyle";
 import { TypeList } from "../../assets/DATA";
-import SignUpInput from "../../components/common/signupInput";
-import styled from "styled-components";
+import SignUpInput from "./signupInput";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import SignUpBtn from "../../components/common/signupBtn";
+import SignUpBtn from "./signUpBtn";
 
 const SignUp = () => {
   // 회원가입 버튼 활성화

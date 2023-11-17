@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Btn } from "../../styles/CommonStyle";
-import { isCancel } from "axios";
 
 const SignUpBtn = ({
   onClick,
